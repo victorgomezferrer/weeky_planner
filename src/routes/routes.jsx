@@ -1,6 +1,9 @@
 
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Layout from "../layout/layout";
+import Home from "../pages/Home/Home";
+import loaderRecipes from "../pages/loaders/loaderRecipes";
+
 
 const ComponentRoutes = () => {
     const router = createBrowserRouter([
@@ -10,7 +13,9 @@ const ComponentRoutes = () => {
             children: [
                 {
                     path: "/",
-                    element: <><h1>holaooo</h1></>,
+                    element: <Home></Home>,
+                    loader: loaderRecipes
+
                 },
 
                 {
