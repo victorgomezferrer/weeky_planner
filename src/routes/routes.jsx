@@ -2,7 +2,9 @@
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Layout from "../layout/layout";
 import Home from "../pages/Home/Home";
-import loaderRecipes from "../pages/loaders/loaderRecipes";
+import loaderRandomRecipes from "../pages/loaders/loaderRandomRecipes";
+import SearchRecipes from "../pages/SearchRecipes/SearchRecipes";
+
 
 
 const ComponentRoutes = () => {
@@ -14,7 +16,14 @@ const ComponentRoutes = () => {
                 {
                     path: "/",
                     element: <Home></Home>,
-                    loader: loaderRecipes
+                    loader: loaderRandomRecipes
+
+                },
+
+                {
+                    path: "/search",
+                    element: <SearchRecipes></SearchRecipes>,
+
 
                 },
 
