@@ -1,38 +1,36 @@
-import { Card as ChackraCard, Image, Text, CardBody, CardFooter, Heading, Button, Box } from '@chakra-ui/react'
+import { Card as ChackraCard, Image, Stack, Divider, ButtonGroup, Box, Text, CardBody, CardFooter, Heading, Button } from '@chakra-ui/react'
 import React from 'react'
 
 const Card = ({ recipe }) => {
-    let { image, label, dishType } = recipe
+    console.log(recipe)
+    let { image, label, dishType, cuisineType } = recipe
 
     return (
-        <ChackraCard
-            direction={{ base: 'column', sm: 'row' }}
-            overflow='hidden'
-            variant='outline'
-        >
-            <Image
-                objectFit='cover'
-                maxW={{ base: '100%', sm: '200px' }}
-                src={image}
-                alt={label}
-            />
-
-            <Box>
-                <CardBody>
+        <ChackraCard maxW='sm'>
+            <CardBody>
+                <Image
+                    src={image}
+                    alt={label}
+                    borderRadius='lg'
+                />
+                <Stack mt='6' spacing='3'>
                     <Heading size='md'>{label}</Heading>
-
-                    <Text py='2'>
+                    <Text>{cuisineType}</Text>
+                    <Text color='blue.600' fontSize='md'>
                         {dishType}
                     </Text>
-                </CardBody>
-
-                <CardFooter>
+                </Stack>
+            </CardBody>
+            <Divider />
+            <CardFooter>
+                <ButtonGroup spacing='2'>
                     <Button variant='solid' colorScheme='blue'>
-                        Buy Latte
+                        Añadir a la cesta de la compra
                     </Button>
-                </CardFooter>
-            </Box>
+                </ButtonGroup>
+            </CardFooter>
         </ChackraCard>
+
     )
 }
 
