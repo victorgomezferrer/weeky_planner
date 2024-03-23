@@ -7,7 +7,7 @@ const App = () => {
 
     return (
         <>
-            <h3>prueba rama master</h3>
+
             <ComponentRoutes></ComponentRoutes>
         </>
     )
