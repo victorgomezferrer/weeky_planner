@@ -21,7 +21,12 @@ const Footer = () => {
         },
     ]
     return (
-        <Flex>
+        <Flex
+            padding={"20px"}
+            justifyContent={'space-between'}
+            alignItems={"center"}
+            backgroundColor={"seashell"}
+        >
             {FOOTER_LINKS.map(({ link, text }) => {
                 return (
                     <BaseLink to={link} text={text} key={text}></BaseLink>

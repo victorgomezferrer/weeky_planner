@@ -1,5 +1,5 @@
 import React from 'react'
-import RecipesCards from '../../components/RecipesCards/RecipesCards'
+import RecipesCards from '../../components/RecipesGrid/RecipesGrid'
 import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {

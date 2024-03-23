@@ -13,6 +13,3 @@ root.render(
     </ChakraProvider>
   </React.StrictMode>
 );
-
-// Marina: probando probando!!!
-

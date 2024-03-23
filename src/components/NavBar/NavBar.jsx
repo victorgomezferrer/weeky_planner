@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Text, Link} from '@chakra-ui/react'
 import React from 'react'
 import BaseLink from '../BaseLink/BaseLink'
 
@@ -22,12 +22,23 @@ const NavBar = () => {
         }
     ]
     return (<>
-        <Flex>
-            <BaseLink to='/' text='Weekly Planner'> </BaseLink>
-        </Flex>
-        <Flex>
+        <Flex
+            padding={"20px"}
+            justifyContent={'space-between'}
+            alignItems={"center"}
+            backgroundColor={"seashell"}
+        >
+            <Link to="/">
+                <img
+                    width={"60px"}
+                    src="/logo.png" alt="Logo" />
+            </Link>
             {NAVBAR_LINKS.map(({ text, link }) => {
-                return <BaseLink key={text} text={text} to={link} ></BaseLink>
+                return <BaseLink
+                    key={text} text={text} to={link}
+                    fontWeight={"bold"}
+
+                ></BaseLink>
             })}
         </Flex>
     </>
@@ -35,3 +46,4 @@ const NavBar = () => {
 }
 
 export default NavBar
+
