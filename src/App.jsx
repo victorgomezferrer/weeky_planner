@@ -7,7 +7,7 @@ const App = () => {
 
     return (
         <>
-            <h1>prueba merge</h1>
+            <h1>prueba merge rama victor</h1>
             <ComponentRoutes></ComponentRoutes>
         </>
     )
