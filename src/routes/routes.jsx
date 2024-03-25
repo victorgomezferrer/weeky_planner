@@ -7,6 +7,11 @@ import SearchRecipes from "../pages/SearchRecipes/SearchRecipes";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import WeeklyMenu from "../pages/WeeklyMenu/WeeklyMenu";
+import UseTerms from "../pages/UseTerms/UseTerms";
+import PolicityPage from "../pages/PolicityPage/PolicityPage";
+import LegalInfoPage from "../pages/LegalInfoPage/LegalInfoPage";
+import Cookies from "../pages/CookiesPage/CookiesPage";
+import loaderBasketIngredients from "../pages/loaders/loaderBasketIngredients";
 
 
 const ComponentRoutes = () => {
@@ -31,7 +36,24 @@ const ComponentRoutes = () => {
                 },
                 {
                     path: "/weekly_menu",
-                    element: <WeeklyMenu/>,
+                    element: <WeeklyMenu />,
+                    loader: loaderBasketIngredients
+                },
+                {
+                    path: "/use_terms",
+                    element: <UseTerms />,
+                },
+                {
+                    path: "/privacity",
+                    element: <PolicityPage />,
+                },
+                {
+                    path: "/legal_info",
+                    element: <LegalInfoPage />,
+                },
+                {
+                    path: "/cookies",
+                    element: <Cookies />,
                 },
                 {
                     path: "*",

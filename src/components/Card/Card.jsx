@@ -1,9 +1,13 @@
 import { Card as ChackraCard, Image, Stack, Divider, ButtonGroup, Box, Text, CardBody, CardFooter, Heading, Button } from '@chakra-ui/react'
 import React from 'react'
+import BasketButton from '../BasketButton/BasketButton'
 
 const Card = ({ recipe }) => {
     console.log(recipe)
     let { image, label, dishType, cuisineType } = recipe
+
+    const boton = document.getElementById('basketButton');
+
 
     return (
         <ChackraCard maxW='sm'>
@@ -23,11 +27,8 @@ const Card = ({ recipe }) => {
             </CardBody>
             <Divider />
             <CardFooter>
-                <ButtonGroup spacing='2'>
-                    <Button variant='solid' colorScheme='blue'>
-                        Añadir a la cesta de la compra
-                    </Button>
-                </ButtonGroup>
+                <BasketButton
+                />
             </CardFooter>
         </ChackraCard>
 

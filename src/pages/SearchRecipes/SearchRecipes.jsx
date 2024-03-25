@@ -41,4 +41,8 @@ const SearchRecipes = () => {
     )
 }
 
+<<<<<<< HEAD
 export default SearchRecipes
+=======
+export default SearchRecipes;
+>>>>>>> 3b74e4af1108feed2f0714bc53d70627be64d105

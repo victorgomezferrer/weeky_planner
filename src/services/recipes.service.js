@@ -32,13 +32,6 @@ class RecipesService extends AxiosConfig {
     return response.data
   }
 
-
-
-
-
-
-
-
-
 }
-export default new RecipesService()
+const recipesService = new RecipesService();
+export default recipesService;

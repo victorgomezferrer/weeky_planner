@@ -2,14 +2,16 @@ import React from 'react'
 import { Flex, List, ListItem, ListIcon, Heading, Checkbox, text } from '@chakra-ui/react'
 
 function WeeklyMenu() {
-    const probando = ["patata", "arroz", "pasta"]
+    const probando = ["patata", "arroz", "pasta", "tomate"]
+
+    
 
     return (
         <>
             <Heading
                 textAlign={"center"}
                 padding={"22px 56px"}
-            >TU LISTA DE LA COMPRA</Heading>
+            >TU LISTA DE LA COMPRA:</Heading>
             <List spacing={3}
                 textAlign={"center"}
             >
