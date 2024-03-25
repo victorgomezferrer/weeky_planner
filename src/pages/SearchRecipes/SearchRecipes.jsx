@@ -1,41 +1,44 @@
-import React from 'react'
+
 import { Button, Input } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import recipesService from '../../services/recipes.service'
-import RecipesCards from '../../components/RecipesCards/RecipesCards'
+import RecipesCards from '../../components/RecipesGrid/RecipesGrid'
 
 
 const SearchRecipes = () => {
 
-    let [inputValues, setImputValues] = useState()
+    let [inputValues, setImputValues] = useState('')
     let [searchResults, setSearchResults] = useState([])
 
     const onChange = (e) => {
-        const searchInput = e.target.value
-        setImputValues(searchInput)
+        setImputValues(e.target.value)
     }
 
     const onSubmit = async (e) => {
         e.preventDefault()
         try {
             const response = await recipesService.getRecipeByName(inputValues)
-            console.log(response)
+
             setSearchResults(response)
 
         } catch (err) {
             console.error(err)
         }
     }
-    console.log(searchResults)
+
     return (
         <>
-            <h1>hola</h1>
+
             <form onSubmit={onSubmit}>
                 <Input onChange={onChange} name={'searchInput'} ></Input>
-                <Button type='submit'>eeeeee</Button>
+                <Button type='submit'>Busca tu receta!</Button>
             </form>
+            {searchResults.count > 0 && <RecipesCards recipes={searchResults} />}
+
 
 
         </>
     )
 }
+
+export default SearchRecipes
