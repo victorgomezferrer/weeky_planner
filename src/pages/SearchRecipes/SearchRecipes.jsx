@@ -1,8 +1,9 @@
 import React from 'react'
 import { Button, Input } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import recipesService from '../../services/recipes.service'
-import RecipesCards from '../../components/RecipesCards/RecipesCards'
+import RecipesCards from '../../components/RecipesGrid/RecipesGrid'
+
 
 
 const SearchRecipes = () => {
@@ -39,3 +40,5 @@ const SearchRecipes = () => {
         </>
     )
 }
+
+export default SearchRecipes;
