@@ -8,27 +8,14 @@ class RecipesService extends AxiosConfig {
   }
 
   async getRandomRecipes() {
-    const response = await this.axios.get(`api/recipes/v2`, {
-      params: {
-        'random': 'true',
-        'q': 'q',
-        'type': 'public',
-        'app_id': 'e50bc045',
-        'app_key': 'b574867775831885724b7dc588c5e125'
-      }
-    })
+
+    const response = await this.axios.get(`/axiosRecipes`)
+
     return response.data
   }
 
   async getRecipeByName(name) {
-    const response = await this.axios.get(`api/recipes/v2`, {
-      params: {
-        'q': `${name}`,
-        'type': 'public',
-        'app_id': 'e50bc045',
-        'app_key': 'b574867775831885724b7dc588c5e125'
-      }
-    })
+    const response = await this.axios.get(`/axiosRecipes/:${name}`)
     return response.data
   }
 

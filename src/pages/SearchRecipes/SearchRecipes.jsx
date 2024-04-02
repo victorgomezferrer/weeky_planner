@@ -17,6 +17,7 @@ const SearchRecipes = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
         try {
+            console.log(e)
             const response = await recipesService.getRecipeByName(inputValues)
 
             setSearchResults(response)

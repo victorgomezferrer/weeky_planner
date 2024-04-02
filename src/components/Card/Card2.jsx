@@ -4,8 +4,9 @@ import BasketButton from '../BasketButton/BasketButton';
 import LikeButton from '../LikeButton/LikeButton';
 
 const Card = ({ recipe }) => {
-    console.log(recipe)
-    const { image, label, dishType, cuisineType, ingredients, url } = recipe;
+
+    const { image, label, dishType, cuisineType, ingredients, url, uri } = recipe;
+
     const [isOpen, setIsOpen] = useState(false);
 
     const handleModalOpen = () => {
@@ -32,8 +33,8 @@ const Card = ({ recipe }) => {
                 </Stack>
             </CardBody>
             <Divider />
-            <ButtonGroup display={"flex"} flexDir={"row"} gap={"10px"} alignItems={"center"} margin={"15px"}>
-                <BasketButton />
+            <ButtonGroup display={"flex"} flexDir={"row"} gap={"10px"} alignItems={"center"} margin={"15px"} >
+                <BasketButton recipe={recipe} />
                 <LikeButton />
             </ButtonGroup>
 
@@ -46,11 +47,11 @@ const Card = ({ recipe }) => {
                     <ModalBody>
                         <UnorderedList>
                             {ingredients.map((ingredient, index) => (
-                              
+
                                 <ListItem key={index} py="2" borderBottom="1px" borderColor="gray.200">
                                     <Text fontSize={"lg"}>{ingredient.text}</Text>
                                 </ListItem>
-                                
+
                             ))}
                         </UnorderedList>
 

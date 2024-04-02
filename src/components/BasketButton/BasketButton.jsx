@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Flex, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
+import { AuthContext } from '../../contexts/AuthContext';
+import userService from '../../services/user.service';
 
-function BasketButton() {
+function BasketButton({ recipe }) {
+
+    // const { user, getToken } = useContext(AuthContext)
+
+
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const toggleModal = () => {
@@ -9,8 +16,22 @@ function BasketButton() {
     };
 
     const agregarAlCarrito = () => {
-        toggleModal();
-        console.log("Añadiendo a carrito");
+        toggleModal()
+        // user ? (
+        //     Promise.all(recipe.ingredients.map((ingredient) => {
+        //         let data = {
+        //             name: ingredient.text,
+        //             quantity: ingredient.quantity,
+        //             measure: ingredient.measure,
+        //             recipeFrom: ingredient.food
+        //         }
+        //         console.log(data)
+        //         return userService.addIngredient(getToken(), data)
+        //     }))).then((r) => { console.log(r), toggleModal() }).catch((err) => { console.log(err) })
+        //     : (console.log('no hay usuario'))
+
+
+
     };
 
     return (

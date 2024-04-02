@@ -2,12 +2,16 @@ import {
     Flex, Box, FormControl, FormLabel, Input, Stack, Button, Heading, Text, useColorModeValue,
 } from '@chakra-ui/react'
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../contexts/AuthContext';
 
-export default function Login() {
+const Login = () => {
+
+    const { login } = useContext(AuthContext)
+
 
     const [userData, setUserData] = useState({
-        username: '',
+
         email: '',
         password: '',
     });
@@ -19,13 +23,13 @@ export default function Login() {
     };
 
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        // Aquí deberías agregar la lógica para la autenticación
-        console.log('Datos del usuario:', userData);
-        // Limpia el formulario
+
+        await login(userData)
+
         setUserData({
-            username: '',
+
             email: '',
             password: '',
         });
@@ -48,10 +52,6 @@ export default function Login() {
                     p={8}>
                     <form id='loginForm' onSubmit={onSubmit}>
                         <Stack spacing={4}>
-                            <FormControl id="username">
-                                <FormLabel>Nombre</FormLabel>
-                                <Input type="text" name='username' value={userData.username} onChange={onChange} />
-                            </FormControl>
 
                             <FormControl id="email">
                                 <FormLabel>Correo electrónico</FormLabel>
@@ -82,3 +82,6 @@ export default function Login() {
         </Flex>
     );
 }
+
+
+export default Login

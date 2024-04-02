@@ -1,8 +1,15 @@
-import { Flex, Box, Input, InputGroup, HStack, InputRightElement, Stack, Button, Heading, Text, useColorModeValue, Link, } from '@chakra-ui/react'
+import { Flex, Box, Input, InputGroup, HStack, InputRightElement, Stack, Button, Heading, Text, useColorModeValue, Link, useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
+import authService from '../../services/auth.service';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function SignUp() {
+
+    const toast = useToast()
+    const navigate = useNavigate()
 
     const [userData, setUserData] = useState({
         username: "",
@@ -12,15 +19,32 @@ export default function SignUp() {
 
     const onChange = (event) => {
         const { name, value } = event.target;
-        setUserData(prevUserData => ({
-            ...prevUserData,
-            [name]: value
-        }));
+        setUserData({ ...userData, [name]: value })
     };
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault()
-        console.log('Nuevo usuario', userData)
+        try {
+            await authService.signup(userData)
+            console.log('REGISTRADO')
+            toast({
+                title: "Account created.",
+                description: "We've created your account for you.",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+            })
+            navigate("/login")
+        } catch (e) {
+            console.log(e); console.log(e.response.data.contenido); toast({
+                title: "No se ha podido registrar el usuario",
+                description: e.response.data.contenido,
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            })
+        }
+
     }
 
     const [showPassword, setShowPassword] = useState(false)

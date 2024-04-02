@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Input, Flex, Heading, Box } from '@chakra-ui/react';
 import recipesService from '../../services/recipes.service';
 import RecipesCards from '../../components/RecipesGrid/RecipesGrid';
@@ -9,18 +9,23 @@ const SearchRecipes = () => {
 
     const onChange = (e) => {
         setInputValue(e.target.value);
+        console.log(e.target.value)
     };
 
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await recipesService.getRecipeByName(inputValue);
+            console.log(response)
             setSearchResults(response);
         } catch (err) {
             console.error(err);
         }
     };
+    useEffect(() => {
 
+    }, [setSearchResults]);
+    console.log(searchResults, 'desde fuera');
     return (
         <Flex direction="column" align="center" justify="center" minHeight="100vh">
             <Box mb={8}>
@@ -41,7 +46,8 @@ const SearchRecipes = () => {
                     </Button>
                 </form>
             </Box>
-            {searchResults.length > 0 && (
+
+            {searchResults.count > 0 && (
                 <Box width="100%" maxWidth="800px">
                     <Heading as="h2" size="lg" mb={4}>
                         Resultados de la búsqueda

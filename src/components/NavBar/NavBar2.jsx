@@ -1,11 +1,15 @@
 import { Box, Flex, Text, IconButton, Button, Stack, Collapse, Icon, Popover, PopoverTrigger, PopoverContent, useColorModeValue, useBreakpointValue, useDisclosure } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 
 
 export default function NavBar2() {
     const { isOpen, onToggle } = useDisclosure()
+
+    const { user, logout } = useContext(AuthContext)
 
     return (
         <Box>
@@ -32,7 +36,7 @@ export default function NavBar2() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Link
-                    to='/'
+                        to='/'
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}>
@@ -44,38 +48,75 @@ export default function NavBar2() {
                     </Flex>
                 </Flex>
 
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
-                    <Button
-                        as={Link}
-                        to="/login"
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        color={'white'}
-                        bg={'pink.400'}
-                        _hover={{
-                            bg: 'pink.300',
-                        }}>
-                        Log In
-                    </Button>
-                    <Button
-                        as={Link}
-                        to='/signup'
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        color={'white'}
-                        bg={'pink.400'}
-                        _hover={{
-                            bg: 'pink.300',
-                        }}>
-                        Sign Up
-                    </Button>
-                </Stack>
+
+
+                {user ? (
+                    <Stack
+                        flex={{ base: 1, md: 0 }}
+                        justify={'flex-end'}
+                        direction={'row'}
+                        spacing={6}>
+                        <Button
+                            as={Link}
+                            to="/profile"
+                            display={{ base: 'none', md: 'inline-flex' }}
+                            fontSize={'sm'}
+                            fontWeight={600}
+                            color={'white'}
+                            bg={'pink.400'}
+                            _hover={{
+                                bg: 'pink.300',
+                            }}>
+                            Perfil
+                        </Button>
+                        <Button
+                            onClick={logout}
+
+                            display={{ base: 'none', md: 'inline-flex' }}
+                            fontSize={'sm'}
+                            fontWeight={600}
+                            color={'white'}
+                            bg={'pink.400'}
+                            _hover={{
+                                bg: 'pink.300',
+                            }}>
+                            Log out
+                        </Button>
+                    </Stack>
+                )
+                    : (<Stack
+                        flex={{ base: 1, md: 0 }}
+                        justify={'flex-end'}
+                        direction={'row'}
+                        spacing={6}>
+                        <Button
+                            as={Link}
+                            to="/login"
+                            display={{ base: 'none', md: 'inline-flex' }}
+                            fontSize={'sm'}
+                            fontWeight={600}
+                            color={'white'}
+                            bg={'pink.400'}
+                            _hover={{
+                                bg: 'pink.300',
+                            }}>
+                            Log In
+                        </Button>
+                        <Button
+                            as={Link}
+                            to='/signup'
+                            display={{ base: 'none', md: 'inline-flex' }}
+                            fontSize={'sm'}
+                            fontWeight={600}
+                            color={'white'}
+                            bg={'pink.400'}
+                            _hover={{
+                                bg: 'pink.300',
+                            }}>
+                            Sign Up
+                        </Button>
+                    </Stack>)
+                }
             </Flex>
         </Box>
     )
@@ -119,7 +160,7 @@ const NAV_ITEMS = [
         link: '/weekly_menu',
     },
     {
-        text: 'Tus recetas',
+        text: 'Buscador de recetas',
         link: '/recipes',
     },
     {

@@ -6,13 +6,17 @@ import { Outlet } from "react-router-dom"
 //nuevas
 import Footer2 from '../components/Footer/Footer2'
 import NavBar2 from '../components/NavBar/NavBar2'
+import { AuthProvider } from "../contexts/AuthContext"
 
 const Layout = () => {
     return (
         <>
-            <NavBar2 />
-            <Outlet />
-            <Footer2 />
+            <AuthProvider>
+
+                <NavBar2 />
+                <Outlet />
+                <Footer2 />
+            </AuthProvider>
         </>
 
     )

@@ -5,11 +5,8 @@ class AxiosConfig {
 
     this.axios = axios.create(
       {
-        baseURL: 'https://api.edamam.com/',
-        headers: {
-          'accept': 'application/json',
-          'Accept-Language': 'en'
-        },
+        baseURL: 'http://localhost:3001/api',
+
       }
     );
   }

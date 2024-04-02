@@ -6,7 +6,7 @@ import LikeButton from '../LikeButton/LikeButton'
 const Card = ({ recipe }) => {
     let { image, label, dishType, cuisineType, ingredients } = recipe
 
-    console.log(recipe)
+
 
     return (
         <ChackraCard maxW='sm'>
@@ -17,7 +17,7 @@ const Card = ({ recipe }) => {
                     borderRadius='lg'
                 />
                 <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{label}</Heading>
+                    <Heading size='md'>{label}</Heading>
                     <Text>{cuisineType}</Text>
                     <Text color='blue.600' fontSize='md'>
                         {dishType}
@@ -25,10 +25,10 @@ const Card = ({ recipe }) => {
                 </Stack>
             </CardBody>
             <Divider />
-                <ButtonGroup display={"flex"} flexDir={"row"} gap={"10px"} alignItems={"center"} margin={"15px"}>
-                    <BasketButton/>
-                  <LikeButton/>
-                </ButtonGroup>
+            <ButtonGroup display={"flex"} flexDir={"row"} gap={"10px"} alignItems={"center"} margin={"15px"}>
+                <BasketButton />
+                <LikeButton />
+            </ButtonGroup>
 
         </ChackraCard>
 

@@ -15,6 +15,7 @@ import SignInPage from "../pages/SignInPage/SingInPage";
 import LoginPage from '../pages/LoginPage/LoginPage'
 import SuscriptionPage from '../pages/SuscriptionPage/SuscriptionPage'
 import AddRecipePage from '../pages/AddRecipesPage/AddRecipesPage'
+import Profile from "../components/Profile/Profile";
 
 
 const ComponentRoutes = () => {
@@ -31,7 +32,7 @@ const ComponentRoutes = () => {
 
                 {
                     path: "/recipes",
-                    element: <AddRecipePage/>,
+                    element: <AddRecipePage />,
                 },
                 {
                     path: "/about",
@@ -44,6 +45,10 @@ const ComponentRoutes = () => {
                 {
                     path: "/use_terms",
                     element: <UseTerms />,
+                },
+                {
+                    path: "/profile",
+                    element: <Profile />,
                 },
                 {
                     path: "/privacity",
@@ -63,7 +68,7 @@ const ComponentRoutes = () => {
                 },
                 {
                     path: "/price",
-                    element: <SuscriptionPage/>,
+                    element: <SuscriptionPage />,
                 },
                 {
                     path: "/login",

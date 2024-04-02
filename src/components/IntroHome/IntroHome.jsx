@@ -32,11 +32,11 @@ export default function IntroHome() {
                             rounded={'full'}
                             color={'white'}
                             _hover={{ bg: 'blue.500' }}>
-                            Mostrar todas las recetas
+                            Encuentra tu receta!
                         </Button>
                         <Button
-                        as={Link}
-                        to={'/about'}
+                            as={Link}
+                            to={'/about'}
                             bg={'whiteAlpha.300'}
                             rounded={'full'}
                             color={'white'}

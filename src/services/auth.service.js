@@ -2,22 +2,24 @@ import AxiosConfig from "../services/axios"
 
 class AuthService extends AxiosConfig {
     constructor() {
-        super("auth")
+        super()
     }
 
     async signup(data) {
-        const response = await this.axios.post("/signup", data)
+
+        const response = await this.axios.post("/auth/signup", data)
         return response.data
     }
 
     async login(data) {
-        const response = await this.axios.post("/login", data)
+        const response = await this.axios.post("/auth/login", data)
         return response.data
     }
 
     async getUser(token) {
+
         const response = await this.axios.post(
-            "/verify",
+            "/user/allData",
             {},
             {
                 headers: {
@@ -25,6 +27,7 @@ class AuthService extends AxiosConfig {
                 },
             }
         )
+
         return response.data
     }
 }
