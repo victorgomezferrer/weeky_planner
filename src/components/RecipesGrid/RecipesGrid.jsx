@@ -1,7 +1,6 @@
 import React from 'react'
-import Card from '../Card/Card'
 import { Grid, Heading } from '@chakra-ui/react'
-
+import Card2 from '../Card/Card2'
 
 const RecipesCards = ({ recipes }) => {
 
@@ -19,11 +18,12 @@ const RecipesCards = ({ recipes }) => {
                 "repeat(3, 1fr)",
             ]}
             gap={"40px"}
+            margin={"30px"}
         >
         <>
-            {recipes.hits.map(({ recipe }) => {
+            {recipes.hits.map(({ recipe, index }) => {
 
-                return <Card recipe={recipe}></Card>
+                return <Card2 key={index} recipe={recipe}></Card2>
             })}
         </>
         </Grid>

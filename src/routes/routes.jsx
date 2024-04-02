@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Layout from "../layout/layout";
 import Home from "../pages/Home/Home";
 import loaderRandomRecipes from "../pages/loaders/loaderRandomRecipes";
-import SearchRecipes from "../pages/SearchRecipes/SearchRecipes";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import WeeklyMenu from "../pages/WeeklyMenu/WeeklyMenu";
@@ -11,7 +10,11 @@ import UseTerms from "../pages/UseTerms/UseTerms";
 import PolicityPage from "../pages/PolicityPage/PolicityPage";
 import LegalInfoPage from "../pages/LegalInfoPage/LegalInfoPage";
 import Cookies from "../pages/CookiesPage/CookiesPage";
-import loaderBasketIngredients from "../pages/loaders/loaderBasketIngredients";
+
+import SignInPage from "../pages/SignInPage/SingInPage";
+import LoginPage from '../pages/LoginPage/LoginPage'
+import SuscriptionPage from '../pages/SuscriptionPage/SuscriptionPage'
+import AddRecipePage from '../pages/AddRecipesPage/AddRecipesPage'
 
 
 const ComponentRoutes = () => {
@@ -27,8 +30,8 @@ const ComponentRoutes = () => {
                 },
 
                 {
-                    path: "/search",
-                    element: <SearchRecipes></SearchRecipes>,
+                    path: "/recipes",
+                    element: <AddRecipePage/>,
                 },
                 {
                     path: "/about",
@@ -37,7 +40,6 @@ const ComponentRoutes = () => {
                 {
                     path: "/weekly_menu",
                     element: <WeeklyMenu />,
-                    loader: loaderBasketIngredients
                 },
                 {
                     path: "/use_terms",
@@ -58,6 +60,18 @@ const ComponentRoutes = () => {
                 {
                     path: "*",
                     element: <NotFoundPage />,
+                },
+                {
+                    path: "/price",
+                    element: <SuscriptionPage/>,
+                },
+                {
+                    path: "/login",
+                    element: <LoginPage />,
+                },
+                {
+                    path: "/signup",
+                    element: <SignInPage />,
                 },
             ],
         },

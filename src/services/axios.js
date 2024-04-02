@@ -12,16 +12,6 @@ class AxiosConfig {
         },
       }
     );
-
-    this.axios2 = axios.create(
-      {
-        baseURL: 'http://localhost:3001/api/',
-        headers: {
-          'accept': 'application/json',
-          'Accept-Language': 'en'
-        },
-      }
-    );
   }
 }
 

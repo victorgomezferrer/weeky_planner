@@ -1,5 +1,6 @@
 import { Flex, Text, Link} from '@chakra-ui/react'
 import React from 'react'
+import { useContext } from 'react'
 import BaseLink from '../BaseLink/BaseLink'
 
 const NavBar = () => {
@@ -41,6 +42,19 @@ const NavBar = () => {
                 ></BaseLink>
             })}
         </Flex>
+        {/* <Flex gap={"20px"}>
+            {user ? (
+                <>
+                    <BaseLink to={"/profile"}>Profile</BaseLink>
+                    <BaseLink onClick={logout}>Logout</BaseLink>
+                </>
+            ) : (
+                <>
+                    <BaseLink to={"/login"}>Login</BaseLink>
+                    <BaseLink to={"/signup"}>Signup</BaseLink>
+                </>
+            )}
+        </Flex> */}
     </>
     )
 }

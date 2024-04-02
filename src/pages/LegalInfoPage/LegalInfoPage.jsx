@@ -1,13 +1,34 @@
 import React from 'react'
-import { Text, Heading } from '@chakra-ui/react'
+import { Text, Heading, Flex, ListItem, UnorderedList } from '@chakra-ui/react'
 
 function LegalInfoPage() {
     return (
-        <div>
-            <Heading>AVISO LEGAL</Heading>
-            <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet odio laboriosam architecto libero mollitia reprehenderit eum ullam, quaerat quam, repellat dolore similique esse officiis ipsam optio voluptatibus fugit tempora possimus dolorum sint enim reiciendis consequuntur magni omnis! Earum alias aliquam similique inventore doloribus sunt voluptatum excepturi magnam dolor provident, cum quaerat consequatur! Magnam sunt quas placeat inventore accusantium, delectus perspiciatis ut aspernatur repudiandae voluptatibus neque. Quos ipsum autem iure, dolore vero praesentium est minus, ex, corrupti ratione laboriosam. Nesciunt necessitatibus, pariatur nam consequatur placeat minus ad repellat natus explicabo. Pariatur necessitatibus neque sit provident voluptas omnis? Quisquam sunt voluptas minus, dolorum architecto officia quibusdam tempora inventore ducimus cupiditate corrupti eos dolore. Labore deserunt voluptatem eos odio soluta natus nam ratione.</Text>
-        </div>
-    )
+        <Flex flexDirection="column" alignItems="center">
+            <Heading as="h1" fontSize="3xl" mb={4} margin={"20px"}>INFORMACIÓN LEGAL</Heading>
+            <UnorderedList styleType="none" textAlign="left" maxWidth="600px">
+                <ListItem mb={8}>
+                    <Text as="h3" fontSize="lg" fontWeight="bold" mb={2}>Responsabilidad</Text>
+                    <Text>Nos esforzamos por garantizar la precisión y actualización de la información en nuestro sitio web, pero no ofrecemos garantías explícitas o implícitas sobre la integridad, precisión, confiabilidad, idoneidad o disponibilidad con respecto al sitio web o la información, productos, servicios o gráficos relacionados.</Text>
+                </ListItem>
+                <ListItem mb={8}>
+                    <Text as="h3" fontSize="lg" fontWeight="bold" mb={2}>Enlaces a otros sitios web</Text>
+                    <Text>Nuestro sitio web puede contener enlaces a otros sitios web que no están bajo nuestro control. No tenemos control sobre la naturaleza, el contenido y la disponibilidad de esos sitios. La inclusión de cualquier enlace no implica necesariamente una recomendación o respaldo de las opiniones expresadas en ellos.</Text>
+                </ListItem>
+                <ListItem mb={8}>
+                    <Text as="h3" fontSize="lg" fontWeight="bold" mb={2}>Limitaciones</Text>
+                    <Text>En ningún caso seremos responsables por daños de ningún tipo, incluidos, entre otros, los daños directos, indirectos, especiales, incidentales o consecuentes o pérdidas de datos que surjan del uso o la imposibilidad de usar nuestro sitio web.</Text>
+                </ListItem>
+                <ListItem mb={8}>
+                    <Text as="h3" fontSize="lg" fontWeight="bold" mb={2}>Jurisdicción</Text>
+                    <Text>Estos términos y condiciones se rigen e interpretan de acuerdo con las leyes del país, y cualquier disputa relacionada con estos términos y condiciones estará sujeta a la jurisdicción exclusiva de los tribunales de ese país.</Text>
+                </ListItem>
+                <ListItem>
+                    <Text as="h3" fontSize="lg" fontWeight="bold" mb={2}>Actualización de información</Text>
+                    <Text>Nos reservamos el derecho de actualizar, modificar o eliminar cualquier información en nuestro sitio web sin previo aviso. Es tu responsabilidad revisar periódicamente esta información para estar al tanto de cualquier cambio.</Text>
+                </ListItem>
+            </UnorderedList>
+        </Flex>
+    );
 }
 
 export default LegalInfoPage;
