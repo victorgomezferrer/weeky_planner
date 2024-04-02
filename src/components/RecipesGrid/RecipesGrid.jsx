@@ -3,7 +3,7 @@ import { Grid, Heading } from '@chakra-ui/react'
 import Card2 from '../Card/Card2'
 
 const RecipesCards = ({ recipes }) => {
-
+    console.log(recipes, 'desde RecipesGrid')
     return (
         <>
         <Heading
