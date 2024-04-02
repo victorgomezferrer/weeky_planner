@@ -1,4 +1,4 @@
-import { Flex, Text, Link} from '@chakra-ui/react'
+import { Flex, Text, Link } from '@chakra-ui/react'
 import React from 'react'
 import { useContext } from 'react'
 import BaseLink from '../BaseLink/BaseLink'
@@ -10,8 +10,8 @@ const NavBar = () => {
             link: '/'
         },
         {
-            text: 'Recetas',
-            link: '/recipes'
+            text: 'Encuentra tu receta',
+            link: '/search'
         },
         {
             text: 'Menu semanal',
