@@ -35,7 +35,7 @@ const Card = ({ recipe }) => {
             <Divider />
             <ButtonGroup display={"flex"} flexDir={"row"} gap={"10px"} alignItems={"center"} margin={"15px"} >
                 <BasketButton recipe={recipe} />
-                <LikeButton />
+                <LikeButton recipe={recipe} />
             </ButtonGroup>
 
             <Modal isOpen={isOpen} onClose={handleModalClose}>

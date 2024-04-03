@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import { Avatar, Box, Flex, Stack, Text, Button } from '@chakra-ui/react'
-
+import RecipesCards from '../RecipesGrid/RecipesGrid'
 const Profile = () => {
 
     const { user } = useContext(AuthContext)
@@ -11,7 +11,7 @@ const Profile = () => {
 
     useEffect(() => { setUsuario(user.user) }, [])
 
-    console.log(usuario)
+    console.log(user.recipe)
 
     return (
         <Box
@@ -19,13 +19,13 @@ const Profile = () => {
             boxShadow="md"
             borderRadius="md"
             bg="white"
-            maxW="400px"
+            maxW="800px"
             mx="auto"
             my={8}
         >
             <Flex alignItems="center" justifyContent="center">
                 <Avatar size="xl" name={usuario.username} src={usuario.avatar} />
-                <Box ml={4}>
+                <Box ml={10}>
                     <Text fontSize="2xl" fontWeight="bold">{usuario.username}</Text>
                     <Stack spacing={2}>
                         <Text fontSize="lg">
@@ -40,6 +40,7 @@ const Profile = () => {
             <Button mt={4} colorScheme="teal" variant="outline" width="full">
                 Editar perfil
             </Button>
+            <RecipesCards recipes={user.recipe}></RecipesCards>
         </Box>
     );
 };

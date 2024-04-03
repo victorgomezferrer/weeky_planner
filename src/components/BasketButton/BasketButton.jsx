@@ -5,7 +5,7 @@ import userService from '../../services/user.service';
 
 function BasketButton({ recipe }) {
 
-    // const { user, getToken } = useContext(AuthContext)
+    const { user, getToken } = useContext(AuthContext)
 
 
 
@@ -16,20 +16,20 @@ function BasketButton({ recipe }) {
     };
 
     const agregarAlCarrito = () => {
-        toggleModal()
-        // user ? (
-        //     Promise.all(recipe.ingredients.map((ingredient) => {
-        //         let data = {
-        //             name: ingredient.text,
-        //             quantity: ingredient.quantity,
-        //             measure: ingredient.measure,
-        //             recipeFrom: ingredient.food
-        //         }
-        //         console.log(data)
-        //         return userService.addIngredient(getToken(), data)
-        //     }))).then((r) => { console.log(r), toggleModal() }).catch((err) => { console.log(err) })
-        //     : (console.log('no hay usuario'))
 
+        user ? (
+            Promise.all(recipe.ingredients.map((ingredient) => {
+                let data = {
+                    name: ingredient.text,
+                    quantity: ingredient.quantity,
+                    measure: ingredient.measure,
+                    recipeFrom: ingredient.food
+                }
+                console.log(data)
+                return userService.addIngredient(getToken(), data)
+            })))
+            : (console.log('no hay usuario'))
+        toggleModal()
 
 
     };

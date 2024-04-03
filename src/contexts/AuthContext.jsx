@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         const loggedUser = await authService.getUser(token)
         setUser(loggedUser)
+
       }
     } catch (error) {
       console.log("Error =>", error)
@@ -57,7 +58,7 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, logout, login, isLoading, getToken }}>
+    <AuthContext.Provider value={{ user, logout, login, isLoading, getToken, getUser }}>
       {children}
     </AuthContext.Provider>
   )
